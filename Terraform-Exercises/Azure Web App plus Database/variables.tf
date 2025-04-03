@@ -117,3 +117,13 @@ variable "repo_url" {
   type        = string
   description = "The repo url"
 }
+
+variable "geo_backup_enabled" {
+  type = bool
+  description = "Sql database geo back up"
+}
+
+variable "storage_account_type" {
+  type = string
+  description = "The storage accout type"
+}

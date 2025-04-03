@@ -58,6 +58,8 @@ resource "azurerm_mssql_database" "azmsd" {
   license_type   = var.database_license_type
   sku_name       = var.database_sku_name
   zone_redundant = var.database_zone_redundant
+  geo_backup_enabled = var.geo_backup_enabled
+  storage_account_type = var.storage_account_type
 }
 
 # Azure Web App Service plan
@@ -75,7 +77,6 @@ resource "azurerm_linux_web_app" "azlwp" {
   resource_group_name = azurerm_resource_group.arg.name
   location            = azurerm_service_plan.azsp.location
   service_plan_id     = azurerm_service_plan.azsp.id
-
   site_config {
     application_stack {
       dotnet_version = var.dotnet_verion
